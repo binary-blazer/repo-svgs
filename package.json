@@ -1,0 +1,44 @@
+{
+  "name": "repo-svgs",
+  "version": "1.0.0",
+  "description": "📦 automation software for public/private github repository svg head images",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github",
+    "repository",
+    "svg",
+    "head",
+    "public",
+    "private",
+    "image",
+    "automation",
+    "software"
+  ],
+  "author": {
+    "name": "Jonas Franke <@binary-blazer>",
+    "email": "jonasfranke@sdevs.org"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "dotenv": "^16.4.5",
+    "emoji-regex": "^10.3.0",
+    "jimp": "^0.22.12",
+    "node-canvas-with-twemoji-and-discord-emoji": "^1.2.1"
+  }
+}
