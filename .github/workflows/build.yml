@@ -27,13 +27,13 @@ jobs:
       - name: Build the project
         run: pnpm run start
         env:
-          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
-          GITHUB_REPO_NAME: ${{ secrets.GITHUB_REPO_NAME }}
-          GITHUB_IGNORE_REPOS: ${{ secrets.GITHUB_IGNORE_REPOS }}
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-          GITHUB_REPO_TYPE: ${{ secrets.GITHUB_REPO_TYPE }}
-          GITHUB_ACCEPT_EMOJIS: ${{ secrets.GITHUB_ACCEPT_EMOJIS }}
-          GITHUB_UPDATE_README_HEAD: ${{ secrets.GITHUB_UPDATE_README_HEAD }}
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          GIT_REPO_NAME: ${{ secrets.GIT_REPO_NAME }}
+          GIT_IGNORE_REPOS: ${{ secrets.GIT_IGNORE_REPOS }}
+          GIT_ACCESS_TOKEN: ${{ secrets.GIT_ACCESS_TOKEN }}
+          GIT_REPO_TYPE: ${{ secrets.GIT_REPO_TYPE }}
+          GIT_ACCEPT_EMOJIS: ${{ secrets.GIT_ACCEPT_EMOJIS }}
+          GIT_UPDATE_README_HEAD: ${{ secrets.GIT_UPDATE_README_HEAD }}
 
   push-changes:
     needs: build

@@ -17,33 +17,33 @@
 
 ```env
 # Your GitHub username
-GITHUB_USERNAME="binary-blazer"
+GIT_USERNAME="binary-blazer"
 
 # Your repository name
-GITHUB_REPO_NAME="repo-svgs"
+GIT_REPO_NAME="repo-svgs"
 
 # Ignore repositories by their name
 # Separate each repository name by a comma
 # Example: GITHUB_IGNORE_REPOS="repo1,repo2,repo3"
-GITHUB_IGNORE_REPOS="binary-blazer"
+GIT_IGNORE_REPOS="binary-blazer"
 
 # Your GitHub access token
-GITHUB_ACCESS_TOKEN=""
+GIT_ACCESS_TOKEN=""
 
 # 1 for public, 2 for private, 3 for all
-GITHUB_REPO_TYPE="1"
+GIT_REPO_TYPE="1"
 
 # Accept emojis from the repository description (must be at the beginning of the description)
 # If not set, it will fallback to the "📦" emoji on the card
 # Example Description including emojis: "🚀 A simple bot that does stuff" // right way
 # Example Description including emojis: "A simple bot that does stuff 🚀" // wrong way
-GITHUB_ACCEPT_EMOJIS="true"
+GIT_ACCEPT_EMOJIS="true"
 
 # Let the code automatically update the repository README head with the image
 # WARNING: This will overwrite the first 10 lines of your README.md file; use with caution
-# REQUIRED: GITHUB_USERNAME, GITHUB_ACCESS_TOKEN
+# REQUIRED: GIT_USERNAME, GIT_ACCESS_TOKEN
 # INFO: Program will skip repositories that do not have a README.md file
-GITHUB_UPDATE_README_HEAD="true"
+GIT_UPDATE_README_HEAD="true"
 ```
 
 ### Markdown
