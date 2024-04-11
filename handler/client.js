@@ -9,9 +9,9 @@ import updateReadmeHead from "../functions/updateReadmeHead.js";
 
 export default async function client() {
   const type =
-    process.env.GITHUB_REPO_TYPE === "1"
+    process.env.GIT_REPO_TYPE === "1"
       ? "public"
-      : process.env.GITHUB_REPO_TYPE === "2"
+      : process.env.GIT_REPO_TYPE === "2"
         ? "private"
         : "all";
   const GithubUsername = process.env.GIT_USERNAME;
