@@ -48,6 +48,14 @@ jobs:
           git config --global user.name "Jonas Franke"
           git config --global user.email "jonasfranke@sdevs.org"
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+      
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Build the project
         run: pnpm run start
         env:
