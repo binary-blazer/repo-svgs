@@ -7,7 +7,6 @@ export default async function createDirectories({ repositories }) {
     // eslint-disable-next-line no-undef
     const directory = path.join(process.cwd(), "out", repository.name);
     fs.mkdirSync(directory, { recursive: true });
-    Logger({ type: "success", message: `Directory created: ${directory}` });
   });
   Logger({ type: "info", message: "Directories created successfully!" });
 }

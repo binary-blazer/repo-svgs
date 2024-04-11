@@ -1,11 +1,59 @@
 ![repo-svgs](https://raw.githubusercontent.com/binary-blazer/repo-svgs/main/out/repo-svgs/image.svg)
 
-
-
-
-
-
-
 # repo-svgs
 
-> Not yet working as expected. It already works and generates png images but the svg is not being rendered correctly so the svg is not yet being generated. I will be updating this soon.
+> Software which allows to create unique head SVGs for your GitHub repositories. An example image is at the top of this README.
+
+## Installation
+
+1. Clone the repository or use it as template.
+2. Setup the [repository secrets](../../settings/secrets/actions) with the following variables [.env](#env).
+3. Run the workflow manually or wait for the next push.
+4. Depending on your settings, the software will already update your repositories. If you did not configure that, you can set the SVGs manually with the following markdown example [Markdown](#markdown).
+
+## Usage
+
+### .env
+
+```env
+# Your GitHub username
+GITHUB_USERNAME="binary-blazer"
+
+# Your repository name
+GITHUB_REPO_NAME="repo-svgs"
+
+# Ignore repositories by their name
+# Separate each repository name by a comma
+# Example: GITHUB_IGNORE_REPOS="repo1,repo2,repo3"
+GITHUB_IGNORE_REPOS="binary-blazer"
+
+# Your GitHub access token
+GITHUB_ACCESS_TOKEN=""
+
+# 1 for public, 2 for private, 3 for all
+GITHUB_REPO_TYPE="1"
+
+# Accept emojis from the repository description (must be at the beginning of the description)
+# If not set, it will fallback to the "📦" emoji on the card
+# Example Description including emojis: "🚀 A simple bot that does stuff" // right way
+# Example Description including emojis: "A simple bot that does stuff 🚀" // wrong way
+GITHUB_ACCEPT_EMOJIS="true"
+
+# Let the code automatically update the repository README head with the image
+# WARNING: This will overwrite the first 10 lines of your README.md file; use with caution
+# REQUIRED: GITHUB_USERNAME, GITHUB_ACCESS_TOKEN
+# INFO: Program will skip repositories that do not have a README.md file
+GITHUB_UPDATE_README_HEAD="true"
+```
+
+### Markdown
+
+```markdown
+[![Repo SVG](https://raw.githubusercontent.com/<YOUR_USERNAME>/<YOUR_REPO_NAME>/main/out/<YOUR_GENERATED_REPO_FOLDER_NAME/image.svg)
+```
+
+> Replace [YOUR_USERNAME](#env), [YOUR_REPO_NAME](#env), and [YOUR_GENERATED_REPO_FOLDER_NAME](#env) with your own values.
+
+## License
+
+[Apache-2.0](https://github.com/binary-blazer/repo-svgs/blob/main/LICENSE)

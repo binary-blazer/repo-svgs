@@ -2,6 +2,7 @@ export default async function getRepositories({
   type = "all",
   GithubToken,
   GithubUsername,
+  IgnoreRepos,
 }) {
   const fetchRepositories = async () => {
     console.log("Fetching repositories...");
@@ -21,6 +22,10 @@ export default async function getRepositories({
         .filter((repo) => repo.fork === false)
         .filter((repo) => repo.archived === false)
         .filter((repo) => repo.visibility === type);
+      if (IgnoreRepos) {
+        const ignoreRepos = IgnoreRepos.split(",");
+        return data.filter((repo) => !ignoreRepos.includes(repo.name));
+      }
       return data;
     } catch (error) {
       console.error("Error fetching repositories:", error);

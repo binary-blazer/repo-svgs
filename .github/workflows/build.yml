@@ -1,0 +1,55 @@
+name: Build
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build the project
+        run: pnpm run start
+        env:
+          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+          GITHUB_REPO_NAME: ${{ secrets.GITHUB_REPO_NAME }}
+          GITHUB_IGNORE_REPOS: ${{ secrets.GITHUB_IGNORE_REPOS }}
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          GITHUB_REPO_TYPE: ${{ secrets.GITHUB_REPO_TYPE }}
+          GITHUB_ACCEPT_EMOJIS: ${{ secrets.GITHUB_ACCEPT_EMOJIS }}
+          GITHUB_UPDATE_README_HEAD: ${{ secrets.GITHUB_UPDATE_README_HEAD }}
+
+  push-changes:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "Jonas Franke"
+          git config --global user.email "jonasfranke@sdevs.org"
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Auto-commit changes"
+          git push
