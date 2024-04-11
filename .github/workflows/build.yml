@@ -48,6 +48,17 @@ jobs:
           git config --global user.name "Jonas Franke"
           git config --global user.email "jonasfranke@sdevs.org"
 
+      - name: Build the project
+        run: pnpm run start
+        env:
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          GIT_REPO_NAME: ${{ secrets.GIT_REPO_NAME }}
+          GIT_IGNORE_REPOS: ${{ secrets.GIT_IGNORE_REPOS }}
+          GIT_ACCESS_TOKEN: ${{ secrets.GIT_ACCESS_TOKEN }}
+          GIT_REPO_TYPE: ${{ secrets.GIT_REPO_TYPE }}
+          GIT_ACCEPT_EMOJIS: ${{ secrets.GIT_ACCEPT_EMOJIS }}
+          GIT_UPDATE_README_HEAD: ${{ secrets.GIT_UPDATE_README_HEAD }}
+
       - name: Commit and push changes
         run: |
           git add .
