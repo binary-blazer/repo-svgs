@@ -4,16 +4,16 @@
 
 > Software which allows to create unique head SVGs for your GitHub repositories. An example image is at the top of this README.
 
-## Installation
+## 📦 Installation
 
 1. Clone the repository or use it as template.
 2. Setup the [repository secrets](../../settings/secrets/actions) with the following variables [.env](#env).
 3. Run the workflow manually or wait for the next push.
 4. Depending on your settings, the software will already update your repositories. If you did not configure that, you can set the SVGs manually with the following markdown example [Markdown](#markdown).
 
-## Usage
+## 🚀 Usage
 
-### .env
+### Environment Variables
 
 ```env
 # Your GitHub username
@@ -54,6 +54,6 @@ GIT_UPDATE_README_HEAD="true"
 
 > Replace [YOUR_USERNAME](#env), [YOUR_REPO_NAME](#env), and [YOUR_GENERATED_REPO_FOLDER_NAME](#env) with your own values.
 
-## License
+## 📝 License
 
 [Apache-2.0](https://github.com/binary-blazer/repo-svgs/blob/main/LICENSE)
