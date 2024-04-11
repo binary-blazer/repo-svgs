@@ -3,6 +3,7 @@ export default async function getRepositories({
   GithubToken,
   GithubUsername,
   IgnoreRepos,
+  RepoName,
 }) {
   const fetchRepositories = async () => {
     console.log("Fetching repositories...");
@@ -21,7 +22,8 @@ export default async function getRepositories({
         .filter((repo) => repo.owner.login === GithubUsername)
         .filter((repo) => repo.fork === false)
         .filter((repo) => repo.archived === false)
-        .filter((repo) => repo.visibility === type);
+        .filter((repo) => repo.visibility === type)
+        .filter((repo) => repo.name === RepoName);
       if (IgnoreRepos) {
         const ignoreRepos = IgnoreRepos.split(",");
         return data.filter((repo) => !ignoreRepos.includes(repo.name));

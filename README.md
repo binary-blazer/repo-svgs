@@ -1,23 +1,5 @@
 ![repo-svgs](https://raw.githubusercontent.com/binary-blazer/repo-svgs/main/out/repo-svgs/image.svg)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # repo-svgs
 
 > Software which allows to create unique head SVGs for your GitHub repositories. An example image is at the top of this README.

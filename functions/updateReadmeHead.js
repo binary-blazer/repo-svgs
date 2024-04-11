@@ -29,7 +29,7 @@ export default async function updateReadmeHead({
       const newImageMarkdown = `![${repository.name}](https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/main/out/${repository.name}/image.svg)`;
 
       const imageMarkdownRegex =
-        /\!\[.*\]\(https:\/\/raw\.githubusercontent\.com\/.*\/image\.svg\)/g;
+        /\!\[.*\]\(https:\/\/raw\.githubusercontent\.com\/.*\/image\.svg\)\n\n/g;
 
       readmeContent = readmeContent.replace(imageMarkdownRegex, "");
 
