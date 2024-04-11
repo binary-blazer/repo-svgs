@@ -33,7 +33,7 @@ export default async function client() {
     GithubToken,
     GithubUsername,
     IgnoreRepos,
-    RepoName
+    RepoName,
   });
 
   await createDirectories({ repositories }).then(async () => {

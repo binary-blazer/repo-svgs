@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+import Logger from "../lib/Logger.js";
+
 export default async function getRepositories({
   type = "all",
   GithubToken,
@@ -6,7 +9,10 @@ export default async function getRepositories({
   RepoName,
 }) {
   const fetchRepositories = async () => {
-    console.log("Fetching repositories...");
+    Logger({
+      type: "info",
+      message: "Fetching repositories...",
+    });
     try {
       const response = await fetch(
         `https://api.github.com/user/repos?type=${type}`,
@@ -16,7 +22,20 @@ export default async function getRepositories({
           },
         },
       );
-      console.log("Repositories fetched successfully!");
+
+      if (response.status === 403) {
+        Logger({
+          type: "error",
+          message: "API rate limit exceeded. Please try again later.",
+        });
+        process.exit(1);
+      }
+
+      Logger({
+        type: "success",
+        message: "Repositories fetched successfully.",
+      });
+
       const toJson = await response.json();
       const data = toJson
         .filter((repo) => repo.owner.login === GithubUsername)
