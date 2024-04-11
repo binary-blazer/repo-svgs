@@ -1,36 +1,37 @@
 name: Build
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+    push:
+    schedule:
+        - cron: "0 0 * * *"
+    workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
+              with:
+                node-version: 18
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+            - name: Install pnpm
+              run: npm install -g pnpm
 
-      - name: Install dependencies
-        run: pnpm install
+            - name: Install dependencies
+              run: pnpm install
 
-      - name: Build the project
-        run: pnpm run start
-        env:
-          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
-          GIT_REPO_NAME: ${{ secrets.GIT_REPO_NAME }}
-          GIT_IGNORE_REPOS: ${{ secrets.GIT_IGNORE_REPOS }}
-          GIT_ACCESS_TOKEN: ${{ secrets.GIT_ACCESS_TOKEN }}
-          GIT_REPO_TYPE: ${{ secrets.GIT_REPO_TYPE }}
-          GIT_ACCEPT_EMOJIS: ${{ secrets.GIT_ACCEPT_EMOJIS }}
-          GIT_UPDATE_README_HEAD: ${{ secrets.GIT_UPDATE_README_HEAD }}
+            - name: Build the project
+              run: pnpm run start
+              env:
+                GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+                GIT_REPO_NAME: ${{ secrets.GIT_REPO_NAME }}
+                GIT_IGNORE_REPOS: ${{ secrets.GIT_IGNORE_REPOS }}
+                GIT_ACCESS_TOKEN: ${{ secrets.GIT_ACCESS_TOKEN }}
+                GIT_REPO_TYPE: ${{ secrets.GIT_REPO_TYPE }}
+                GIT_ACCEPT_EMOJIS: ${{ secrets.GIT_ACCEPT_EMOJIS }}
+                GIT_UPDATE_README_HEAD: ${{ secrets.GIT_UPDATE_README_HEAD }}
