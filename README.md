@@ -49,7 +49,7 @@ GIT_UPDATE_README_HEAD="true"
 ### Markdown
 
 ```markdown
-[
+[![Repo SVG](https://raw.githubusercontent.com/<YOUR_USERNAME>/<YOUR_REPO_NAME>/main/out/<YOUR_GENERATED_REPO_FOLDER_NAME/image.svg)
 ```
 
 > Replace [YOUR_USERNAME](#env), [YOUR_REPO_NAME](#env), and [YOUR_GENERATED_REPO_FOLDER_NAME](#env) with your own values.
